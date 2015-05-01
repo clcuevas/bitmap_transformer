@@ -8,7 +8,7 @@ module.exports = function(grunt) {
   grunt.initConfig({
     jshint: {
       dev: {
-        src: ['Gruntfile.js', 'server.js', 'test/**/*.js']
+        src: ['*.js', 'lib/**/*.js', 'test/**/*.js']
       },
       options: {
         jshintrc: '.jshintrc'
@@ -28,5 +28,5 @@ module.exports = function(grunt) {
   });//end grunt initConfig
   grunt.registerTask('test', ['jshint:dev']);
   grunt.registerTask('mocha', ['simplemocha:dev']);
-  grunt.registerTask('default', ['jshint', 'mocha', 'watch']);
+  grunt.registerTask('default', ['test', 'mocha', 'watch']);
 };
