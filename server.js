@@ -2,5 +2,5 @@
 
 var runTransform = require('./lib/bmp_read.js');
 
-runTransform('./bitmap1.bmp');
+runTransform('./images/bitmap1.bmp');
 
