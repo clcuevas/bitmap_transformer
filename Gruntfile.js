@@ -2,6 +2,7 @@
 
 module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-jshint');
+  grunt.loadNpmTasks('grunt-jscs');
   grunt.loadNpmTasks('grunt-simple-mocha');
   grunt.loadNpmTasks('grunt-contrib-watch');
 
@@ -12,6 +13,11 @@ module.exports = function(grunt) {
       },
       options: {
         jshintrc: '.jshintrc'
+      }
+    },
+    jscs: {
+      dev: {
+        src: ['<%= jshint.dev.src %>']
       }
     },
     simplemocha: {
@@ -26,7 +32,9 @@ module.exports = function(grunt) {
       }
     }
   });//end grunt initConfig
-  grunt.registerTask('test', ['jshint:dev']);
+
+  grunt.registerTask('test', ['jshint:dev', 'jscs:dev']);
+  //grunt.registerTask('test2', ['jscs:dev']);
   grunt.registerTask('mocha', ['simplemocha:dev']);
-  grunt.registerTask('default', ['test', 'mocha', 'watch']);
+  grunt.registerTask('default', ['test','mocha', 'watch']);
 };
