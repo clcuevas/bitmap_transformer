@@ -1,8 +1,6 @@
 'use strict';
 
-var bmpRead = require('./lib/bmp_read.js').readBMP;
-//var bmpConvert = require('./lib/bmp_read.js').convert;
+var runTransform = require('./lib/bmp_read.js');
 
-//bmpRead('./bitmap1.bmp');
-bmpRead('./bitmap1.bmp');
+runTransform('./bitmap1.bmp');
 
