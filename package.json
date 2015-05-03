@@ -4,7 +4,7 @@
   "description": "Bitmap Transformer Assignment",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "./node_modules/grunt-cli/bin/grunt test",
     "start": "node server.js"
   },
   "repository": {
@@ -23,6 +23,7 @@
     "grunt-cli": "^0.1.13",
     "grunt-contrib-jshint": "^0.11.2",
     "grunt-contrib-watch": "^0.6.1",
+    "grunt-jscs": "^1.8.0",
     "grunt-simple-mocha": "^0.4.0",
     "mocha": "^2.2.4"
   }
