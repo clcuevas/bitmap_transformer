@@ -6,19 +6,20 @@ var bitmap = require('../lib/bmpObject.js').read;
 //var file = fs.readFile('./images/bitmap1.bmp');
 var file;
 
-before(function() {
-	fs.readFile('./images/bitmap1.bmp', function(err, data) {
-		if(err) {
-			throw err;
-		}
-		file = bitmap(data);
-		console.dir(file.type);
-	});
-});
-
 describe('Test bitmap object information', function() {
+
+	before(function(done) {
+		fs.readFile('./images/bitmap1.bmp', function(err, data) {
+			if(err) {
+				throw err;
+			}
+			file = bitmap(data);
+			/*When you create a before block you need a parameter of 'done' so that when your block has finished reading what you're running it will force the script to end(similar to a return statement)*/
+			done();
+		});//end readFile
+	});//end before call
+
 	it('should be a type of BM', function() {
-		//console.log(bitmap(file));
 		expect(file.type).to.equal('BM');
 	});//end type test
 
